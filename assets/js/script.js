@@ -1,5 +1,6 @@
 var currentContainer = document.getElementById("current-data");
 var cityTitle = document.getElementById("city-title");
+var forecastDays = document.getElementById("forecast-data");
 
 const date = new Date();
 const month = date.getMonth()+1;
@@ -27,18 +28,24 @@ function handleClick() {
                         currentContainer.innerHTML =
                             `<div class="current-data">
                                 <div>Temp: ${temp}°F</div>
-                            </div>
-                            <div class="current-data">
-                                <div>Wind: ${wind_speed}</div>
-                            </div>
-                            <div class="current-data">
+                                <div>Wind: ${wind_speed}mph</div>
                                 <div>Humidity: ${humidity}%</div>
-                            </div>
-                            <div class="current-data">
                                 <div>UV Index: ${uvi}</div>
                             </div>`;
 
-                            
+                        
+                        for (var i = 0; i <= 4; i++) {
+                            const temp = data.daily[i].temp.day;
+                            const { wind_speed, humidity, uvi } = data.daily[i];
+                            console.log(data.daily[i]);
+                            forecastDays.innerHTML =
+                            `<div>
+                                <div>Temp: ${temp}°F</div>
+                                <div>Wind: ${wind_speed}mph</div>
+                                <div>Humidity: ${humidity}%</div>
+                                <div>UV Index: ${uvi}</div>
+                            </div>`;
+                        }    
                     }
             )})
     } else if (!city) {

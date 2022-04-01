@@ -32,7 +32,7 @@
     justify-content: space-around;
 }
 
-.days {
+.forecast-data {
     width: 25%;
     border: 2px solid black;
 }
