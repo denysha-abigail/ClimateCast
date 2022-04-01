@@ -35,18 +35,19 @@ function handleClick() {
 
 
                         for (var i = 1; i <= 5; i++) {
-                            const temp = data.daily[i].temp.day;
-                            const { dt, wind_speed, humidity, uvi } = data.daily[i];
-                            console.log(data.daily[i]);
+                            var weatherData = {
+                                date: data.daily[i].dt,
+                                temp: data.daily[i].temp.day,
+                                wind_speed: data.daily[i].wind_speed,
+                                humidity: data.daily[i].humidity,
+                                uvi: data.daily[i].uvi
+                            };
 
-                            const milliseconds = dt * 1000;
-                            const dateObject = new Date(milliseconds);
-                            const humanDate = dateObject.toLocaleString("en-US", { timeZoneName: "short" });
-                            const fullDate = humanDate.split(", ")[0];
-
-                            forecastDays.innerHTML =
+                            var currentDate = moment.unix(weatherData.date).format("MM/DD/YYYY");
+                            
+                            document.getElementById("forecast-data-" + i).innerHTML =
                                 `<div>
-                                    <h4>${fullDate}</h4>
+                                    <h4>${currentDate}</h4>
                                     <div>Temp: ${temp}°F</div>
                                     <div>Wind: ${wind_speed}mph</div>
                                     <div>Humidity: ${humidity}%</div>
