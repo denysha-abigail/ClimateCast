@@ -66,7 +66,7 @@ function handleClick() {
                                 </div>`;
                         }
                     }
-                    )
+                )
             })
     } else if (!city) {
         alert("Please enter a city.");
