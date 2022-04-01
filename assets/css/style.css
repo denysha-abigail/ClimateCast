@@ -5,6 +5,7 @@
 .banner{
     text-align: center;
     background: linear-gradient(165deg,gray, black 100%);
+    color: rgba(255, 255, 255, .75);
 }
 
 .side {
@@ -20,4 +21,18 @@
 .city-wrapper {
     display: flex;
     justify-content: space-between;
+}
+
+.current-data {
+    line-height: 2rem;
+}
+
+.five-days {
+    display: flex;
+    justify-content: space-around;
+}
+
+.days {
+    width: 25%;
+    border: 2px solid black;
 }
