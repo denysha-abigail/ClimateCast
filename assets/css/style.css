@@ -8,12 +8,12 @@
     color: rgba(255, 255, 255, .75);
 }
 
-.side {
+side {
     width: 25%;
     border: 2px solid black;
 }
 
-.main {
+main {
     width: 70%;
     border: 2px solid black;
 }
@@ -34,5 +34,6 @@
 
 .forecast-data {
     width: 25%;
+    line-height: 2rem;
     border: 2px solid black;
 }

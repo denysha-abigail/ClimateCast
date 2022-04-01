@@ -3,7 +3,7 @@ var cityTitle = document.getElementById("city-title");
 var forecastDays = document.getElementById("forecast-data");
 
 const date = new Date();
-const month = date.getMonth()+1;
+const month = date.getMonth() + 1;
 const day = date.getDate();
 const year = date.getFullYear();
 const fullYear = " " + "(" + month + "/" + day + "/" + year + ")";
@@ -18,7 +18,7 @@ function handleClick() {
             .then(data => data.json())
             .then(data => {
                 const { lat, lon, name } = data[0];
-                cityTitle.innerHTML = 
+                cityTitle.innerHTML =
                     `<h3 class="current-city">${name + fullYear}</h3>`
                 let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
                 fetch(url2)
@@ -33,21 +33,29 @@ function handleClick() {
                                 <div>UV Index: ${uvi}</div>
                             </div>`;
 
-                        
-                        for (var i = 0; i <= 4; i++) {
+
+                        for (var i = 1; i <= 5; i++) {
                             const temp = data.daily[i].temp.day;
-                            const { wind_speed, humidity, uvi } = data.daily[i];
+                            const { dt, wind_speed, humidity, uvi } = data.daily[i];
                             console.log(data.daily[i]);
+
+                            const milliseconds = dt * 1000;
+                            const dateObject = new Date(milliseconds);
+                            const humanDate = dateObject.toLocaleString("en-US", { timeZoneName: "short" });
+                            const fullDate = humanDate.split(", ")[0];
+
                             forecastDays.innerHTML =
-                            `<div>
-                                <div>Temp: ${temp}°F</div>
-                                <div>Wind: ${wind_speed}mph</div>
-                                <div>Humidity: ${humidity}%</div>
-                                <div>UV Index: ${uvi}</div>
-                            </div>`;
-                        }    
+                                `<div>
+                                    <h4>${fullDate}</h4>
+                                    <div>Temp: ${temp}°F</div>
+                                    <div>Wind: ${wind_speed}mph</div>
+                                    <div>Humidity: ${humidity}%</div>
+                                    <div>UV Index: ${uvi}</div>
+                                </div>`;
+                        }
                     }
-            )})
+                    )
+            })
     } else if (!city) {
         alert("Please enter a city.");
     }
