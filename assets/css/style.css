@@ -8,7 +8,7 @@
     color: rgba(255, 255, 255, .75);
 }
 
-side {
+aside {
     width: 25%;
     border: 2px solid black;
 }
@@ -36,4 +36,16 @@ main {
     width: 25%;
     line-height: 2rem;
     border: 2px solid black;
+}
+
+.favorable {
+    background-color: rgb(129,178,22);
+}
+
+.moderate {
+    background-color: rgb(255,183,46) ;
+}
+
+.severe {
+    background-color: rgb(190,3,1);
 }

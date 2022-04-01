@@ -25,14 +25,25 @@ function handleClick() {
                     .then(data => data.json())
                     .then(data => {
                         const { temp, wind_speed, humidity, uvi } = data.current;
+                        const { icon } = data.current.weather[0];
+
+                            var colorBlock = ""
+                                if (uvi > 7) {
+                                    colorBlock = "severe";
+                                } else if (uvi > 4 && uvi < 7) {
+                                    colorBlock = "moderate";
+                                } else if (uvi < 4) {
+                                    colorBlock = "favorable";
+                                }
+
                         currentContainer.innerHTML =
-                            `<div class="current-data">
+                            `<img src="http://openweathermap.org/img/w/${icon}.png">
+                            <div class="current-data">
                                 <div>Temp: ${temp}°F</div>
                                 <div>Wind: ${wind_speed}mph</div>
                                 <div>Humidity: ${humidity}%</div>
-                                <div>UV Index: ${uvi}</div>
+                                <div class="color ${colorBlock}">UV Index: ${uvi}</div>
                             </div>`;
-
 
                         for (var i = 1; i <= 5; i++) {
                             var weatherData = {
@@ -40,18 +51,18 @@ function handleClick() {
                                 temp: data.daily[i].temp.day,
                                 wind_speed: data.daily[i].wind_speed,
                                 humidity: data.daily[i].humidity,
-                                uvi: data.daily[i].uvi
+                                icon: data.current.weather[0].icon
                             };
 
                             var currentDate = moment.unix(weatherData.date).format("MM/DD/YYYY");
-                            
+
                             document.getElementById("forecast-data-" + i).innerHTML =
                                 `<div>
                                     <h4>${currentDate}</h4>
-                                    <div>Temp: ${temp}°F</div>
-                                    <div>Wind: ${wind_speed}mph</div>
-                                    <div>Humidity: ${humidity}%</div>
-                                    <div>UV Index: ${uvi}</div>
+                                    <img src="http://openweathermap.org/img/w/${weatherData.icon}.png">
+                                    <div>Temp: ${weatherData.temp}°F</div>
+                                    <div>Wind: ${weatherData.wind_speed}mph</div>
+                                    <div">Humidity: ${weatherData.humidity}%</div>
                                 </div>`;
                         }
                     }
