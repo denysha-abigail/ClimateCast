@@ -2,6 +2,8 @@ var currentContainer = document.getElementById("current-data");
 var cityTitle = document.getElementById("city-title");
 var forecastDays = document.getElementById("forecast-data");
 
+var history = [];
+
 const date = new Date();
 const month = date.getMonth() + 1;
 const day = date.getDate();
@@ -14,9 +16,14 @@ function handleClick() {
     let city = document.getElementById('city').value.trim();
     if (city) {
         fetchData(city);
+        history.push(city);
+        localStorage.setItem("city", JSON.stringify(history));
+        console.log(history);
     } else if (!city) {
         alert("Please enter a city.");
     }
+
+    
 };
 
 
