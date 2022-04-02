@@ -16,25 +16,19 @@ function handleClick() {
     let city = document.getElementById('city').value.trim();
     if (city) {
         fetchData(city);
-        // history.push(city);
-        // localStorage.setItem("city", JSON.stringify(history));
-        console.log(history);
     } else if (!city) {
         alert("Please enter a city.");
     }
 
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
-
     };
 
     localStorage.setItem("City", JSON.stringify(searchHistory));
-    console.log(searchHistory);
-
 };
 
 function fetchData(city) {
-    let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`
+    let url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`
     fetch(url)
         .then(data => data.json())
         .then(data => {
@@ -90,7 +84,7 @@ function fetchData(city) {
         })
 };
 
-function domload() {
+function loadData() {
 
 var searchHistoryList = JSON.parse(localStorage.getItem("City"));
 var searchHistoryBtn = document.getElementById("search-history");
@@ -107,4 +101,4 @@ var searchHistoryBtn = document.getElementById("search-history");
     }
 };
 
-domload();
+loadData();
