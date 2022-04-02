@@ -2,7 +2,7 @@ var currentContainer = document.getElementById("current-data");
 var cityTitle = document.getElementById("city-title");
 var forecastDays = document.getElementById("forecast-data");
 
-var history = [];
+var searchHistory = [];
 
 const date = new Date();
 const month = date.getMonth() + 1;
@@ -16,16 +16,22 @@ function handleClick() {
     let city = document.getElementById('city').value.trim();
     if (city) {
         fetchData(city);
-        history.push(city);
-        localStorage.setItem("city", JSON.stringify(history));
+        // history.push(city);
+        // localStorage.setItem("city", JSON.stringify(history));
         console.log(history);
     } else if (!city) {
         alert("Please enter a city.");
     }
 
-    
-};
+    if (!searchHistory.includes(city)) {
+        searchHistory.push(city);
 
+    };
+
+    localStorage.setItem("City", JSON.stringify(searchHistory));
+    console.log(searchHistory);
+
+};
 
 function fetchData(city) {
     let url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${api_key}`
@@ -42,7 +48,7 @@ function fetchData(city) {
                     const { temp, wind_speed, humidity, uvi } = data.current;
                     const { icon } = data.current.weather[0];
 
-                    var colorBlock = ""
+                    var colorBlock = "";
                     if (uvi > 7) {
                         colorBlock = "severe";
                     } else if (uvi > 4 && uvi < 7) {
@@ -52,7 +58,7 @@ function fetchData(city) {
                     }
 
                     currentContainer.innerHTML =
-                            `<img src="http://openweathermap.org/img/w/${icon}.png">
+                        `<img src="http://openweathermap.org/img/w/${icon}.png">
                             <div class="current-data">
                                 <div>Temp: ${temp}°F</div>
                                 <div>Wind: ${wind_speed}mph</div>
@@ -72,7 +78,7 @@ function fetchData(city) {
                         var currentDate = moment.unix(weatherData.date).format("MM/DD/YYYY");
 
                         document.getElementById("forecast-data-" + i).innerHTML =
-                                `<div>
+                            `<div>
                                     <h4>${currentDate}</h4>
                                     <img src="http://openweathermap.org/img/w/${weatherData.icon}.png">
                                     <div>Temp: ${weatherData.temp}°F</div>
@@ -83,3 +89,22 @@ function fetchData(city) {
                 })
         })
 };
+
+function domload() {
+
+var searchHistoryList = JSON.parse(localStorage.getItem("City"));
+var searchHistoryBtn = document.getElementById("search-history");
+
+    document.querySelector("#search-history").addEventListener("click", (event) => {
+        var citySearch = document.getElementById("search-history").innerHTML;
+        fetchData(citySearch);
+    });
+
+    if (!searchHistoryList) {
+        searchHistoryBtn.value.innerText = "";
+    } else {
+        searchHistoryBtn.innerText = `${searchHistoryList[0]}`;
+    }
+};
+
+domload();
