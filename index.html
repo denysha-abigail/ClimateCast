@@ -20,16 +20,30 @@
         <div class="city-wrapper d-flex justify-content-between p-3">
             <aside>
                 <h3 class="text-center">Search for a City:</h3>
-                <div class="text-center"><input class="border-color" type="text" id="city" placeholder="i.e. San Diego"></div>
-                <div class="text-center pt-3"><button id="search" class="btn btn-dark">Search</button></div>
+                <div class="text-center"><input class="border-color rounded" type="text" id="city" placeholder="i.e. San Diego"></div>
+                <div class="text-center pt-3">
+                    <button id="search" class="btn btn-dark">Search</button>
+                </div>
                 <hr>
                 <h4 class="text-center">Search History</h4>
-                <div class="text-center"><button class="search-history text-capitalize btn btn-dark" id="search-history"></button></div>
+
+                <div class="text-center card">
+                    <button class="text-capitalize btn btn-dark" id="search-history-0">1</button>
+                </div>
+
+                <div class="text-center card">
+                    <button class="search-history text-capitalize btn btn-dark" id="search-history-1">2</button>
+                </div>
+
+                <div class="text-center card">
+                    <button class="search-history text-capitalize btn btn-dark" id="search-history-2">3</button>
+                </div>
+
             </aside>
             <main>
                 <h4>Current Forecast:</h4>
                 <div class="card border-color">
-                <div id="city-title" class="city-title card-body pb-0"></div>
+                <div id="city-title" class="city-title card-body pb-0 text-center">Current Day</div>
                 <div id="current-data" class="current-data card-body pt-0"></div>
                 </div>
                 <div class="forecast">
