@@ -145,7 +145,13 @@ function loadData() {
             fetchData(citySearch);
         });
 
-        searchHistoryBtn.innerText = `${searchHistoryList[i]}`;
+        if (searchHistoryList[i] == undefined) {
+            searchHistoryBtn.disabled = true;
+            searchHistoryBtn.innerText = `${i + 1}`;
+
+        } else {
+            searchHistoryBtn.innerText = `${searchHistoryList[i]}`;
+        }
     }
 };
 
