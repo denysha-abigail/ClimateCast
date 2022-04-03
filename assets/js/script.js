@@ -20,6 +20,7 @@ function handleClick() {
     let city = document.getElementById('city').value.trim();
     if (city) {
         fetchData(city);
+        document.getElementById('city').value = "";
     } else if (!city) {
         alert("Please enter a city.");
         return;
@@ -74,7 +75,7 @@ function fetchData(city) {
                             <div>Temp: ${temp}°F</div>
                             <div>Wind: ${wind_speed}mph</div>
                             <div>Humidity: ${humidity}%</div>
-                            <div>UV Index: <span class="${uviBlock}">${uvi}<span></div>
+                            <div>UV Index: <span class="${uviBlock} text-uppercase">${uvi} ${uviBlock}</span></div>
                         </div>`;
 
                     // loop through daily forecast
@@ -120,15 +121,11 @@ function fetchData(city) {
                                 </div>`;
                     }
                 })
+            // catch function in the event of an error
+            .catch(function(error){
+            alert("Error. Unable to connect to ClimateCast");
+            });
         })
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
-    // add catch function in the event of an error
 };
 
 // load data function for when user refreshes page
