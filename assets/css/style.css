@@ -44,16 +44,29 @@ span {
 
 /* uvi color block colors */
 
-.favorable {
-    background-color: rgb(129,178,22);
+.low {
+    background-color: rgb(83,146,89);
 }
 
 .moderate {
-    background-color: rgba(255,183,46,.75) ;
+    /* 3 to 5 */
+    background-color: rgb(255,225,98);
+    color: var(--dark);
 }
 
-.severe {
+.high {
+    /* 6 to 7 */
+    background-color: rgb(255,142,4);
+}
+
+.very-high {
+    /* 8 to 10 */
     background-color: rgb(190,3,1);
+}
+
+.extreme {
+    /* 11 or more */
+    background-color: rgb(21,0,79);
 }
 
 /* icon colors */

@@ -51,13 +51,17 @@ function fetchData(city) {
 
                     // change uvi div class name to change colors based on favorable, moderate, and severe value ranges
                     var uviBlock = "";
-                    if (uvi > 7) {
-                        uviBlock = "severe";
-                    } else if (uvi > 4 && uvi < 7) {
+                    if (uvi >= 11) {
+                        uviBlock = "extreme";
+                    } else if (uvi >= 8 && uvi <= 10.99) {
+                        uviBlock = "very-high";
+                    } else if (uvi >= 6 && uvi <= 7.99) {
+                        uviBlock = "high";
+                    } else if (uvi >= 3 && uvi <= 5.99) {
                         uviBlock = "moderate";
-                    } else if (uvi < 4) {
-                        uviBlock = "favorable";
-                    }
+                    } else if (uvi <= 2.99) {
+                        uviBlock = "low";
+                    } 
 
                     // append city title to HTML
                     cityTitle.innerHTML =
