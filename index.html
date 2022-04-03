@@ -12,28 +12,33 @@
 
 <body>
 
-    <div class="container">
-        <div class="banner">
+    <div class="container card mt-3">
+        <div class="banner p-2 text-center">
             <h1>ClimateCast</h1>
         </div>
-        <div class="city-wrapper">
+        <div class="city-wrapper d-flex justify-content-between p-3">
             <aside>
-                <h3>Search for a City:</h3>
-                <input type="text" id="city" placeholder="San Diego"><button id="search">Search</button>
+                <h3 class="text-center">Search for a City:</h3>
+                <div class="text-center"><input type="text" id="city" placeholder="San Diego"></div>
+                <div class="text-center pt-3"><button id="search" class="text-center">Search</button></div>
                 <hr>
-                <div class="history"><button class="search-history" id="search-history"></button></div>
+                <h4 class="text-center">Search History</h4>
+                <div class="history text-center"><button class="search-history" id="search-history"></button></div>
             </aside>
             <main>
-                <div id="city-title" class="city-title"></div>
-                <div id="current-data" class="current-data"></div>
+                <h4>Current Forecast:</h4>
+                <div class="card">
+                <div id="city-title" class="city-title card-body pb-0"></div>
+                <div id="current-data" class="current-data card-body pt-0"></div>
+                </div>
                 <div class="forecast">
-                    <h4>5-Day Forecast:</h4>
-                    <div class="five-days">
-                        <div id="forecast-data-1" class="forecast-data">1</div>
-                        <div id="forecast-data-2" class="forecast-data">2</div>
-                        <div id="forecast-data-3" class="forecast-data">3</div>
-                        <div id="forecast-data-4" class="forecast-data">4</div>
-                        <div id="forecast-data-5" class="forecast-data">5</div>
+                    <h4 class="pt-3">5-Day Forecast:</h4>
+                    <div class="five-days d-flex justify-content-around">
+                        <div id="forecast-data-1" class="forecast-data card text-center">Day 1</div>
+                        <div id="forecast-data-2" class="forecast-data card text-center">Day 2</div>
+                        <div id="forecast-data-3" class="forecast-data card text-center">Day 3</div>
+                        <div id="forecast-data-4" class="forecast-data card text-center">Day 4</div>
+                        <div id="forecast-data-5" class="forecast-data card text-center">Day 5</div>
                     </div>
                 </div>
             </main>

@@ -1,20 +1,6 @@
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-} */
-
-
-.container{
+.container {
     width: 90%;
     margin: 0 auto;
-}
-
-.banner{
-    text-align: center;
-    background: linear-gradient(165deg,gray, black 100%);
-    color: rgba(255, 255, 255, .75);
 }
 
 aside {
@@ -25,24 +11,19 @@ main {
     width: 70%;
 }
 
-.city-wrapper {
-    display: flex;
-    justify-content: space-between;
+span {
+    padding: 5px 5px;
+    border-radius: 10%;
+    color: white;
 }
 
 .current-data {
     line-height: 2rem;
 }
 
-.five-days {
-    display: flex;
-    justify-content: space-around;
-}
-
 .forecast-data {
     width: 25%;
     line-height: 2rem;
-    border: 2px solid black;
 }
 
 /* uvi color block colors */

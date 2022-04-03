@@ -22,6 +22,7 @@ function handleClick() {
         fetchData(city);
     } else if (!city) {
         alert("Please enter a city.");
+        return;
     }
 
     // set localStorage
@@ -39,10 +40,7 @@ function fetchData(city) {
         .then(data => data.json())
         .then(data => {
             const { lat, lon, name } = data[0];
-            // append city title to HTML
-            cityTitle.innerHTML =
-                `<h3 class="current-city">${name + fullYear}</h3>`
-            
+        
             // fetch weather conditions from lat and lon data
             let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
             fetch(url2)
@@ -61,16 +59,19 @@ function fetchData(city) {
                         uviBlock = "favorable";
                     }
 
+                    // append city title to HTML
+                    cityTitle.innerHTML =
+                    `<h3>${name + fullYear}<img src="https://openweathermap.org/img/wn/${icon}.png"></h3>`
+
                     // append current weather to HTML
                     currentContainer.innerHTML =
-                        `<img src="https://openweathermap.org/img/wn/${icon}.png">
-                            <div class="current-data">
-                                <div>Weather Conditions: ${main}</div>
-                                <div>Temp: ${temp}°F</div>
-                                <div>Wind: ${wind_speed}mph</div>
-                                <div>Humidity: ${humidity}%</div>
-                                <div class="color ${uviBlock}">UV Index: ${uvi}</div>
-                            </div>`;
+                        `<div>
+                            <div>Weather Conditions: ${main}</div>
+                            <div>Temp: ${temp}°F</div>
+                            <div>Wind: ${wind_speed}mph</div>
+                            <div>Humidity: ${humidity}%</div>
+                            <div>UV Index: <span class="${uviBlock}">${uvi}<span></div>
+                        </div>`;
 
                     // loop through daily forecast
                     for (var i = 1; i <= 5; i++) {
@@ -82,7 +83,6 @@ function fetchData(city) {
                             icon: data.current.weather[0].icon,
                             main: data.current.weather[0].main
                         };
-                        console.log(main)
                         
                         // add forecast-data div class based on icon to reflect weather conditions
                         var iconBlock = "";
@@ -111,8 +111,8 @@ function fetchData(city) {
 
                         // append 5-day forecast to HTML
                         document.getElementById("forecast-data-" + i).innerHTML =
-                            `<div class="${iconBlock}">
-                                    <h4>${currentDate}</h4>
+                            `<div class="${iconBlock} card-body">
+                                    <h4 class="card-title">${currentDate}</h4>
                                     <img src="https://openweathermap.org/img/wn/${weatherData.icon}.png">
                                     <div>Weather Conditions: ${weatherData.main}</div>
                                     <div>Temp: ${weatherData.temp}°F</div>
@@ -145,7 +145,7 @@ function loadData() {
     });
 
     if (!searchHistoryList) {
-        searchHistoryBtn.value.innerText = "";
+        searchHistoryBtn.innerText = "";
     } else {
         searchHistoryBtn.innerText = `${searchHistoryList[0]}`;
     }
