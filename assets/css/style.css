@@ -23,8 +23,8 @@ main {
 
 span {
     padding: 5px 5px;
-    border-radius: 10%;
-    color: white;
+    border-radius: 5%;
+    color: var(--dark);
 }
 
 .current-data {
@@ -34,65 +34,76 @@ span {
 .forecast-data {
     width: 25%;
     line-height: 2rem;
-    background-color: rgb(52,58,63);
+    border: 2px solid rgb(52,58,63);
     color: white;
 }
 
+.border-color {
+    border: 2px solid rgb(52,58,63);
+}
+
 .bg-color {
-    background-color: rgba(109,130,153,.75);
+    /* rgba(109,130,153,.75) */
+    background-color: var(--dark);
+}
+
+.font-color {
+    color: var(--dark);
 }
 
 /* uvi color block colors */
-
 .low {
     background-color: rgb(83,146,89);
+    color: white;
 }
 
 .moderate {
     /* 3 to 5 */
     background-color: rgb(255,225,98);
-    color: var(--dark);
 }
 
 .high {
     /* 6 to 7 */
     background-color: rgb(255,142,4);
+    color: white;
 }
 
 .very-high {
     /* 8 to 10 */
     background-color: rgb(190,3,1);
+    color: white;
 }
 
 .extreme {
     /* 11 or more */
     background-color: rgb(21,0,79);
+    color: white;
 }
 
-/* icon colors */
+/* weather condition description colors */
 .clear {
-    background-color: rgba(239,254,253,.75);
-    color: var(--dark);
+    background-color: rgb(144,190,211);
 }
 
 .clouds {
     background-color: rgba(146,168,189,.75);
+    color: white;
 }
 
 .rain {
     background-color: rgba(65,105,130,.75);
+    color: white;
 }
 
 .thunderstorm {
     background-color: rgba(59,57,70,.75);
+    color: white;
 }
 
 .snow {
     background-color: rgba(238,238,238,.75);
-    color: var(--dark);
 }
 
 .atmosphere {
     background-color: rgba(209,209,209,.75);
-    color: va;
 }
