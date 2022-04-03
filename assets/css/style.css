@@ -4,6 +4,10 @@
     font-family: 'Rajdhani', sans-serif;
 }
 
+:root {
+    --dark: rgb(52,58,63);
+}
+
 .container {
     width: 90%;
     margin: 0 auto;
@@ -45,7 +49,7 @@ span {
 }
 
 .moderate {
-    background-color: rgb(255,183,46) ;
+    background-color: rgba(255,183,46,.75) ;
 }
 
 .severe {
@@ -55,10 +59,12 @@ span {
 /* icon colors */
 .clear-sky {
     background-color: rgba(239,254,253,.75);
+    color: var(--dark);
 }
 
 .few-clouds {
     background-color: rgba(177,207,224,.75);
+    color: var(--dark);
 }
 
 .scattered-clouds {
@@ -71,23 +77,22 @@ span {
 
 .shower-rain {
     background-color: rgba(65,105,130,.75);
-    color: white;
 }
 
 .rain {
     background-color: rgba(59,57,70,.75);
-    color: white;
 }
 
 .thunderstorm {
     background-color: rgba(26,26,26,.75);
-    color: white;
 }
 
 .snow {
     background-color: rgba(238,238,238,.75);
+    color: var(--dark);
 }
 
 .mist {
     background-color: rgba(209,209,209,.75);
+    color: va;
 }

@@ -80,8 +80,8 @@ function fetchData(city) {
                             temp: data.daily[i].temp.day,
                             wind_speed: data.daily[i].wind_speed,
                             humidity: data.daily[i].humidity,
-                            icon: data.current.weather[0].icon,
-                            main: data.current.weather[0].main
+                            icon: data.daily[i].weather[0].icon,
+                            main: data.daily[i].weather[0].main
                         };
                         
                         // add forecast-data div class based on icon to reflect weather conditions
