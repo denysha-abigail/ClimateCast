@@ -86,23 +86,24 @@ function fetchData(city) {
                         
                         // add forecast-data div class based on icon to reflect weather conditions
                         var iconBlock = "";
-                        if (icon == "01d" || icon == "01n") {
+                
+                        if (weatherData.icon == "01d" || weatherData.icon == "01n") {
                             iconBlock = "clear-sky";
-                        } else if (icon == "02d" || icon == "02n") {
+                        } else if (weatherData.icon == "02d" || weatherData.icon == "02n") {
                             iconBlock = "few-clouds";
-                        } else if (icon == "03d" || icon == "03n") {
+                        } else if (weatherData.icon == "03d" || weatherData.icon == "03n") {
                             iconBlock = "scattered-clouds";
-                        } else if (icon == "04d" || icon == "04n") {
+                        } else if (weatherData.icon == "04d" || weatherData.icon == "04n") {
                             iconBlock = "broken-clouds";
-                        } else if (icon == "09d" || icon == "09n") {
+                        } else if (weatherData.icon == "09d" || weatherData.icon == "09n") {
                             iconBlock = "shower-rain";
-                        } else if (icon == "10d" || icon == "10n") {
+                        } else if (weatherData.icon == "10d" || weatherData.icon == "10n") {
                             iconBlock = "rain";
-                        } else if (icon == "11d" || icon == "11n") {
+                        } else if (weatherData.icon == "11d" || weatherData.icon == "11n") {
                             iconBlock = "thunderstorm";
-                        } else if (icon == "13d" || icon == "13n") {
+                        } else if (weatherData.icon == "13d" || weatherData.icon == "13n") {
                             iconBlock = "snow";
-                        } else if (icon == "50d" || icon == "50n") {
+                        } else if (weatherData.icon == "50d" || weatherData.icon == "50n") {
                             iconBlock = "mist";
                         }
 
