@@ -47,7 +47,7 @@ function fetchData(city) {
                 .then(data => data.json())
                 .then(data => {
                     const { temp, wind_speed, humidity, uvi } = data.current;
-                    const { icon, main } = data.current.weather[0];
+                    const { icon, description } = data.current.weather[0];
 
                     // change uvi div class name to change colors based on favorable, moderate, and severe value ranges
                     var uviBlock = "";
@@ -70,7 +70,7 @@ function fetchData(city) {
                     // append current weather to HTML
                     currentContainer.innerHTML =
                         `<div>
-                            <div>Weather Conditions: ${main}</div>
+                            <div>Weather Conditions: ${description}</div>
                             <div>Temp: ${temp}°F</div>
                             <div>Wind: ${wind_speed}mph</div>
                             <div>Humidity: ${humidity}%</div>
@@ -85,30 +85,24 @@ function fetchData(city) {
                             wind_speed: data.daily[i].wind_speed,
                             humidity: data.daily[i].humidity,
                             icon: data.daily[i].weather[0].icon,
-                            main: data.daily[i].weather[0].main
+                            description: data.daily[i].weather[0].description
                         };
                         
                         // add forecast-data div class based on icon to reflect weather conditions
                         var iconBlock = "";
                 
                         if (weatherData.icon == "01d" || weatherData.icon == "01n") {
-                            iconBlock = "clear-sky";
-                        } else if (weatherData.icon == "02d" || weatherData.icon == "02n") {
-                            iconBlock = "few-clouds";
-                        } else if (weatherData.icon == "03d" || weatherData.icon == "03n") {
-                            iconBlock = "scattered-clouds";
-                        } else if (weatherData.icon == "04d" || weatherData.icon == "04n") {
-                            iconBlock = "broken-clouds";
-                        } else if (weatherData.icon == "09d" || weatherData.icon == "09n") {
-                            iconBlock = "shower-rain";
-                        } else if (weatherData.icon == "10d" || weatherData.icon == "10n") {
+                            iconBlock = "clear";
+                        } else if (weatherData.icon == "02d" || weatherData.icon == "02n" || weatherData.icon == "03d" || weatherData.icon == "03n" || weatherData.icon == "04d" || weatherData.icon == "04n") {
+                            iconBlock = "clouds";
+                        } else if (weatherData.icon == "09d" || weatherData.icon == "09n" || weatherData.icon == "10d" || weatherData.icon == "10n") {
                             iconBlock = "rain";
                         } else if (weatherData.icon == "11d" || weatherData.icon == "11n") {
                             iconBlock = "thunderstorm";
                         } else if (weatherData.icon == "13d" || weatherData.icon == "13n") {
                             iconBlock = "snow";
                         } else if (weatherData.icon == "50d" || weatherData.icon == "50n") {
-                            iconBlock = "mist";
+                            iconBlock = "atmosphere";
                         }
 
                         // format current date for each forecast div
@@ -119,7 +113,7 @@ function fetchData(city) {
                             `<div class="bg-color card-body">
                                     <h4 class="card-title">${currentDate}</h4>
                                     <img src="https://openweathermap.org/img/wn/${weatherData.icon}.png">
-                                    <div>Weather Conditions: <span class="${iconBlock}">${weatherData.main}</span></div>
+                                    <div>Weather Conditions: <span class="${iconBlock} text-uppercase">${weatherData.description}</span></div>
                                     <div>Temp: ${weatherData.temp}°F</div>
                                     <div>Wind: ${weatherData.wind_speed}mph</div>
                                     <div">Humidity: ${weatherData.humidity}%</div>

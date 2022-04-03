@@ -70,34 +70,21 @@ span {
 }
 
 /* icon colors */
-.clear-sky {
+.clear {
     background-color: rgba(239,254,253,.75);
     color: var(--dark);
 }
 
-.few-clouds {
-    background-color: rgba(177,207,224,.75);
-    color: var(--dark);
-}
-
-.scattered-clouds {
-    background-color: rgba(106,152,171,.75);
-}   
-
-.broken-clouds {
+.clouds {
     background-color: rgba(146,168,189,.75);
 }
 
-.shower-rain {
+.rain {
     background-color: rgba(65,105,130,.75);
 }
 
-.rain {
-    background-color: rgba(59,57,70,.75);
-}
-
 .thunderstorm {
-    background-color: rgba(26,26,26,.75);
+    background-color: rgba(59,57,70,.75);
 }
 
 .snow {
@@ -105,7 +92,7 @@ span {
     color: var(--dark);
 }
 
-.mist {
+.atmosphere {
     background-color: rgba(209,209,209,.75);
     color: va;
 }
