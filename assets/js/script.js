@@ -111,10 +111,10 @@ function fetchData(city) {
 
                         // append 5-day forecast to HTML
                         document.getElementById("forecast-data-" + i).innerHTML =
-                            `<div class="${iconBlock} card-body">
+                            `<div class="bg-color card-body">
                                     <h4 class="card-title">${currentDate}</h4>
                                     <img src="https://openweathermap.org/img/wn/${weatherData.icon}.png">
-                                    <div>Weather Conditions: ${weatherData.main}</div>
+                                    <div>Weather Conditions: <span class="${iconBlock}">${weatherData.main}</span></div>
                                     <div>Temp: ${weatherData.temp}°F</div>
                                     <div>Wind: ${weatherData.wind_speed}mph</div>
                                     <div">Humidity: ${weatherData.humidity}%</div>

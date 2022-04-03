@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300&display=swap');
+
+* {
+    font-family: 'Rajdhani', sans-serif;
+}
+
 .container {
     width: 90%;
     margin: 0 auto;
@@ -24,6 +30,12 @@ span {
 .forecast-data {
     width: 25%;
     line-height: 2rem;
+    background-color: rgb(52,58,63);
+    color: white;
+}
+
+.bg-color {
+    background-color: rgba(109,130,153,.75);
 }
 
 /* uvi color block colors */
@@ -58,7 +70,6 @@ span {
 }
 
 .shower-rain {
-    /* rgb(27,56,78) */
     background-color: rgba(65,105,130,.75);
     color: white;
 }
