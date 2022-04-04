@@ -1,15 +1,20 @@
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+# ClimateCast
 
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
-WHEN I view the UV index
-THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+## Beta Version 0.1
+
+## Features:
+Built with HTML, CSS, Vanilla JavaScript, Bootstrap, and Moment.js, this interactive and responsive weather dashboard is designed to display current and future forecast data of searched cities based on their latitude and longitude.
+
+## How to Use:
+Enter a city in the input form underneath "Search for a City:" and click the search button for ClimateCast to generate current and future weather conditions, an icon to represent those weather conditions, temperature, wind speed, humidity, and UV index. The current forecast will display a color coded UV index block based on the United States Environmental Protection Agency UV Index Scale (Green: 0-2 Low, Yellow: 3-5 Moderate, Orange: 6-7 High, Red: 8-10 Very High, Purple: 11+ Extreme). 
+
+> Note: With this current Beta Version, ClimateCast will only save and store the first 3 searched cities into your local computer. Upon refreshing your browser, the cities will be displayed on the left-hand side under Search History and can be accessed with a simple click. Future updates are forthcoming to improve this experience. 
+
+## Website:
+Visit [ClimateCast](https://denysha-abigail.github.io/weather-dashboard/) to begin planning your trip!
+
+## Preview:
+![screenrecording](./assets/images/ClimateCast.gif)
+
+## Contributors:
+*Denysha Guerrios-Armaiz, 04/2022*
