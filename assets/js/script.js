@@ -68,11 +68,12 @@ function fetchData(city) {
 
                     // append city title to HTML
                     cityTitle.innerHTML =
-                        `<h3>${name + fullYear}<img src="https://openweathermap.org/img/wn/${icon}.png"></h3>`
+                        `<h3>${name + fullYear}</h3>`
 
                     // append current weather to HTML
                     currentContainer.innerHTML =
-                        `<div>
+                        `<div class="text-center">
+                            <img src="https://openweathermap.org/img/wn/${icon}.png">
                             <div>Weather Conditions: <span class="text-capitalize">${description}</span></div>
                             <div>Temp: ${temp}°F</div>
                             <div>Wind: ${wind_speed}mph</div>
