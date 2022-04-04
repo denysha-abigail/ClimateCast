@@ -13,7 +13,7 @@ Enter a city in the input field underneath "Search for a City:" and click the se
 > Note: With this current Beta Version, ClimateCast will only save and store the first 3 searched cities into your local computer. Upon refreshing your browser, the cities will be displayed on the left-hand side under Search History and can be accessed with a simple click. Future updates are forthcoming to improve this experience. 
 
 ## Website:
-Visit [ClimateCast](https://denysha-abigail.github.io/weather-dashboard/) to begin planning your trip!
+Visit [ClimateCast](https://denysha-abigail.github.io/weather-dashboard/) to begin checking weather outlooks for cities around the world!
 
 ## Preview:
 ![screenrecording](./assets/images/ClimateCast.gif)
