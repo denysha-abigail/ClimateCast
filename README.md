@@ -1,6 +1,6 @@
 # ClimateCast
 
-### Beta Version 0.1
+## Beta Version 0.1
 
 ## Features:
 Built with HTML, CSS, Vanilla JavaScript, Bootstrap, and Moment.js, this interactive and responsive weather dashboard uses server-side APIs provided by OpenWeatherMap to display current and future forecast data of searched cities based on their latitude and longitude.
