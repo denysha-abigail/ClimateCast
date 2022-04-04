@@ -15,8 +15,6 @@ const fullYear = " " + "(" + month + "/" + day + "/" + year + ")";
 // add click event listener to call search button and run handleClick function
 document.querySelector('button').addEventListener('click', handleClick);
 
-
-
 // get city input from user
 function handleClick() {
     let city = document.getElementById('city').value.trim();
@@ -137,19 +135,22 @@ function loadData() {
     // get localStorage
     var searchHistoryList = JSON.parse(localStorage.getItem("City"));
 
+    // loop through each button and append the corresponding city name
     for (var i = 0; i <= 2; i++) {
         var searchHistoryBtn = document.getElementById("search-history-" + i);
         searchHistoryBtn.innerHTML = `<span>${searchHistoryList[i]}</span>`;
 
+        // run fetchData function when search history buttons are clicked
         searchHistoryBtn.addEventListener("click", (event) => {
             var citySearch = event.target.outerText;
             fetchData(citySearch);
         });
 
+        // if there is an empty section in the array, replace the "undefined" innerText of the button with the button order number as a placeholder and disable the button from being clicked
         if (searchHistoryList[i] == undefined) {
             searchHistoryBtn.disabled = true;
             searchHistoryBtn.innerText = `${i + 1}`;
-
+        // if a section in the array has a value, then replace the button order number with the city innerText
         } else {
             searchHistoryBtn.innerText = `${searchHistoryList[i]}`;
         }
