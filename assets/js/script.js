@@ -13,7 +13,7 @@ const year = date.getFullYear();
 const fullYear = " " + "(" + month + "/" + day + "/" + year + ")";
 
 // add click event listener to call search button and run handleClick function
-document.querySelector('button').addEventListener('click', handleClick);
+document.getElementById('search').addEventListener('click', handleClick);
 
 // get city input from user
 function handleClick() {
@@ -22,7 +22,7 @@ function handleClick() {
         fetchData(city);
         document.getElementById('city').value = "";
     } else if (!city) {
-        alert("Please enter a city.");
+        alert("Please enter a city!");
         return;
     }
 
@@ -41,7 +41,20 @@ function fetchData(city) {
         .then(data => data.json())
         .then(data => {
             const { lat, lon, name } = data[0];
+            
 
+            data.forEach(name => {
+                document.querySelector(".history").innerHTML +=
+                `<button class="text-capitalize btn btn-dark history-btn my-2 col-9" id="${name.name}">${name.name}</button>`
+            });
+
+
+            document.getElementById(`${name}`).addEventListener('click', event => {
+                var idCityName = name;
+                console.log(idCityName);
+                // fetchData(idCityName);
+            });
+            
             // fetch weather conditions from lat and lon data
             let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
             fetch(url2)
@@ -133,28 +146,25 @@ function fetchData(city) {
 function loadData() {
 
     // get localStorage
-    var searchHistoryList = JSON.parse(localStorage.getItem("City"));
-
+    if (localStorage.city == undefined) {
+        return;
+    } else {
     // loop through each button and append the corresponding city name
-    for (var i = 0; i <= 2; i++) {
-        var searchHistoryBtn = document.getElementById("search-history-" + i);
-        searchHistoryBtn.innerHTML = `<span>${searchHistoryList[i]}</span>`;
+        for (var i = 0; i <= searchHistoryList.length; i++) {
+            var searchHistoryList = JSON.parse(localStorage.getItem("City"));
+            console.log(searchHistoryList)
 
-        // run fetchData function when search history buttons are clicked
-        searchHistoryBtn.addEventListener("click", (event) => {
-            var citySearch = event.target.outerText;
-            fetchData(citySearch);
-        });
-
-        // if there is an empty section in the array, replace the "undefined" innerText of the button with the button order number as a placeholder and disable the button from being clicked
-        if (searchHistoryList[i] == undefined) {
-            searchHistoryBtn.disabled = true;
-            searchHistoryBtn.innerText = `${i + 1}`;
-        // if a section in the array has a value, then replace the button order number with the city innerText
-        } else {
-            searchHistoryBtn.innerText = `${searchHistoryList[i]}`;
+            var searchHistoryBox = document.querySelector(".history");
+            let btn = document.createElement("button");
+            btn.setAttribute("class", "text-capitalize btn btn-dark history-btn my-2");
+            btn.innerText = searchHistoryList[i];
+            btn.addEventListener("click", (btn) => {
+            console.log(btn)
+            searchHistoryBox.appendChild(btn);
+            });
         }
-    }
+    }  
 };
 
 loadData();
+
