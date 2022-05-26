@@ -46,14 +46,15 @@ function fetchData(city) {
             data.forEach(name => {
                 document.querySelector(".history").innerHTML +=
                 `<button class="text-capitalize btn btn-dark history-btn my-2 col-9" id="${name.name}">${name.name}</button>`
+                document.getElementById(`${name.name}`).disabled = true;
             });
 
 
-            document.getElementById(`${name}`).addEventListener('click', event => {
-                var idCityName = name;
-                console.log(idCityName);
-                // fetchData(idCityName);
-            });
+            // document.querySelector(".history-btn").addEventListener('click', event => {
+            //     var idCityName = name;
+            //     console.log(idCityName);
+            //     fetchData(idCityName);
+            // });
             
             // fetch weather conditions from lat and lon data
             let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
@@ -143,28 +144,32 @@ function fetchData(city) {
 };
 
 // load data function for when user refreshes page
-function loadData() {
+
+// function loadData() {
 
     // get localStorage
-    if (localStorage.city == undefined) {
-        return;
-    } else {
+
+    // if (localStorage.city == undefined) {
+    //     return;
+    // } else {
+
     // loop through each button and append the corresponding city name
-        for (var i = 0; i <= searchHistoryList.length; i++) {
-            var searchHistoryList = JSON.parse(localStorage.getItem("City"));
-            console.log(searchHistoryList)
+    
+//         for (var i = 0; i <= searchHistoryList.length; i++) {
+//             var searchHistoryList = JSON.parse(localStorage.getItem("City"));
+//             console.log(searchHistoryList)
 
-            var searchHistoryBox = document.querySelector(".history");
-            let btn = document.createElement("button");
-            btn.setAttribute("class", "text-capitalize btn btn-dark history-btn my-2");
-            btn.innerText = searchHistoryList[i];
-            btn.addEventListener("click", (btn) => {
-            console.log(btn)
-            searchHistoryBox.appendChild(btn);
-            });
-        }
-    }  
-};
+//             var searchHistoryBox = document.querySelector(".history");
+//             let btn = document.createElement("button");
+//             btn.setAttribute("class", "text-capitalize btn btn-dark history-btn my-2");
+//             btn.innerText = searchHistoryList[i];
+//             btn.addEventListener("click", (btn) => {
+//             console.log(btn)
+//             searchHistoryBox.appendChild(btn);
+//             });
+//         }
+//     }  
+// };
 
-loadData();
+// loadData();
 
