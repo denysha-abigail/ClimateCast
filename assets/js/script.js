@@ -2,8 +2,10 @@ var currentContainer = document.getElementById("current-data");
 var cityTitle = document.getElementById("city-title");
 var forecastDays = document.getElementById("forecast-data");
 
-// set search history to empty array
-var searchHistory = [];
+let store = eval(localStorage.City) || [];
+let history = document.querySelector('.history');
+
+loadHistory();
 
 // set current date
 const date = new Date();
@@ -25,13 +27,6 @@ function handleClick() {
         alert("Please enter a city!");
         return;
     }
-
-    // set localStorage
-    if (!searchHistory.includes(city)) {
-        searchHistory.push(city);
-    };
-
-    localStorage.setItem("City", JSON.stringify(searchHistory));
 };
 
 // fetch lat and lon from city input
@@ -42,25 +37,19 @@ function fetchData(city) {
         .then(data => {
             const { lat, lon, name } = data[0];
             
-
-            data.forEach(name => {
-                document.querySelector(".history").innerHTML +=
-                `<button class="text-capitalize btn btn-dark history-btn my-2 col-9" id="${name.name}">${name.name}</button>`
-                document.getElementById(`${name.name}`).disabled = true;
-            });
-
-
-            // document.querySelector(".history-btn").addEventListener('click', event => {
-            //     var idCityName = name;
-            //     console.log(idCityName);
-            //     fetchData(idCityName);
-            // });
-            
             // fetch weather conditions from lat and lon data
             let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
             fetch(url2)
                 .then(data => data.json())
                 .then(data => {
+
+                    // set localStorage
+                    if (!store.includes(city)) {
+                        store.push(city);
+                        localStorage.City = JSON.stringify(store);
+                        loadHistory();
+                    };
+                    
                     const { temp, wind_speed, humidity, uvi } = data.current;
                     const { icon, description } = data.current.weather[0];
 
@@ -148,6 +137,21 @@ function fetchData(city) {
 // function loadData() {
 
     // get localStorage
+    function loadHistory() {
+        if(store.length) {
+            history.innerHTML = "";
+            store.forEach(city => {
+                document.querySelector('.history').innerHTML += 
+                `<button onclick="handleHistory('${city}')" class="text-capitalize btn btn-dark history-btn my-2 col-9">${city}</button>`
+            });
+        }
+    }
+
+    function handleHistory(city) {
+        document.querySelector('input').value = city;
+        handleClick();
+    };
+
 
     // if (localStorage.city == undefined) {
     //     return;
