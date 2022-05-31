@@ -1,22 +1,38 @@
-# ClimateCast
+# ClimateCast ⛅
 
-## Beta Version 0.1
-
-## Features:
+## Description
 Built with HTML, CSS, Vanilla JavaScript, Bootstrap, and Moment.js, this interactive and responsive weather dashboard uses server-side APIs provided by OpenWeatherMap to display current and future forecast data of searched cities based on their latitude and longitude.
 
-## How to Use:
-Enter a city in the input field underneath "Search for a City:" and click the search button for ClimateCast to generate current and future weather conditions, an icon to represent those weather conditions, temperature, wind speed, humidity, and UV index. 
+Visit [ClimateCast](https://denysha-abigail.github.io/weather-dashboard/) to begin searching for weather outlooks around the world!
 
-- The current forecast will display a color coded UV index block based on the United States Environmental Protection Agency UV Index Scale (Green: 0-2 Low, Yellow: 3-5 Moderate, Orange: 6-7 High, Red: 8-10 Very High, Purple: 11+ Extreme).
+## Table of Contents
+  - [Usage](#usage)
+  - [Preview](#preview)
+  - [Contribution](#contribution)
+  - [Questions](#questions)
+  - [Credits](#credits)
 
-> Note: With this current Beta Version, ClimateCast will only save and store the first 3 searched cities into your local computer. Upon refreshing your browser, the cities will be displayed on the left-hand side under Search History and can be accessed with a simple click. Future updates are forthcoming to improve this experience. 
+## Usage
+Enter a city in the "Search for a City:" input field and click the search button for ClimateCast to generate current weather conditions and a five-day forecast overview. 
 
-## Website:
-Visit [ClimateCast](https://denysha-abigail.github.io/weather-dashboard/) to begin checking weather outlooks for cities around the world!
+- The current forecast will display a color coded UV index block based on the United States Environmental Protection Agency UV Index Scale:
 
-## Preview:
-![screenrecording](./assets/images/ClimateCast.gif)
+    - 🟩: 0-2 (Low)
+    - 🟨: 3-5 (Moderate)
+    - 🟧: 6-7 (High)
+    - 🟥: 8-10 (Very High)
+    - 🟪: 11+ (Extreme)
 
-## Contributors:
-*Denysha Guerrios-Armaiz, 04/2022*
+## Preview
+
+
+## Contribution 
+- Forking this repository is always welcomed and encouraged!
+
+> If you encounter a problem with this application, please add an issue or pull request to the GitHub repository. 
+
+## Questions
+- Please feel free to use this application at any time and visit my personal [GitHub](https://github.com/denysha-abigail) profile to access other open source projects! 
+
+## Credits
+- *[Denysha Guerrios-Armaiz](https://github.com/denysha-abigail), 04/2022*
