@@ -36,7 +36,7 @@ function fetchData(city) {
         .then(data => data.json())
         .then(data => {
             const { lat, lon, name } = data[0];
-            
+
             // fetch weather conditions from lat and lon data
             let url2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${api_key}`
             fetch(url2)
@@ -49,7 +49,7 @@ function fetchData(city) {
                         localStorage.City = JSON.stringify(store);
                         loadHistory();
                     };
-                    
+
                     const { temp, wind_speed, humidity, uvi } = data.current;
                     const { icon, description } = data.current.weather[0];
 
@@ -132,48 +132,19 @@ function fetchData(city) {
         })
 };
 
-// load data function for when user refreshes page
-
-// function loadData() {
-
-    // get localStorage
-    function loadHistory() {
-        if(store.length) {
-            history.innerHTML = "";
-            store.forEach(city => {
-                document.querySelector('.history').innerHTML += 
+// get localStorage
+function loadHistory() {
+    if (store.length) {
+        history.innerHTML = "";
+        store.forEach(city => {
+            document.querySelector('.history').innerHTML +=
                 `<button onclick="handleHistory('${city}')" class="text-capitalize btn btn-dark history-btn my-2 col-9">${city}</button>`
-            });
-        }
+        });
     }
+}
 
-    function handleHistory(city) {
-        document.querySelector('input').value = city;
-        handleClick();
-    };
-
-
-    // if (localStorage.city == undefined) {
-    //     return;
-    // } else {
-
-    // loop through each button and append the corresponding city name
-    
-//         for (var i = 0; i <= searchHistoryList.length; i++) {
-//             var searchHistoryList = JSON.parse(localStorage.getItem("City"));
-//             console.log(searchHistoryList)
-
-//             var searchHistoryBox = document.querySelector(".history");
-//             let btn = document.createElement("button");
-//             btn.setAttribute("class", "text-capitalize btn btn-dark history-btn my-2");
-//             btn.innerText = searchHistoryList[i];
-//             btn.addEventListener("click", (btn) => {
-//             console.log(btn)
-//             searchHistoryBox.appendChild(btn);
-//             });
-//         }
-//     }  
-// };
-
-// loadData();
+function handleHistory(city) {
+    document.querySelector('input').value = city;
+    handleClick();
+};
 
