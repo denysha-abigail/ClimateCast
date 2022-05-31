@@ -25,6 +25,7 @@ Enter a city in the "Search for a City:" input field and click the search button
 
 ## Preview
 
+https://user-images.githubusercontent.com/96617237/171089161-37826f39-9a43-496f-8af0-f0218e58b91e.mp4
 
 ## Contribution 
 - Forking this repository is always welcomed and encouraged!
